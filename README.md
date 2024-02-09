@@ -19,18 +19,18 @@ Clock Phase (CPHA): 0 (data captured on the leading edge of clock)
 In Mode 0, the clock is in its low state (0) when idle, and data is sampled on the leading (rising) edge of the clock signal. Data is typically transmitted and received on MOSI and MISO lines, respectively.
 
 ### Mode 1:
-CPOL: 0
+CPOL: 0,
 CPHA: 1 (data captured on the trailing edge of clock)
 Similar to Mode 0, the clock is in its low state when idle. However, data is sampled on the trailing (falling) edge of the clock signal.
 
 ### Mode 2:
-CPOL: 1 (idle state high)
+CPOL: 1 (idle state high),
 CPHA: 0
 In Mode 2, the clock is in its high state (1) when idle, and data is sampled on the leading edge of the clock signal.
 
 ### Mode 3:
-CPOL: 1
-CPHA: 1
+CPOL: 1,
+CPHA: 1,
 Similar to Mode 2, the clock is in its high state when idle. Data is sampled on the trailing edge of the clock signal.
 
 ### The implementation covers the 4 modes by parametrizing CPOL and CPHA. 
