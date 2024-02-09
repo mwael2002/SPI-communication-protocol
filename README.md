@@ -12,8 +12,8 @@ SS/CS (Slave Select/Chip Select): This line is used by the master to select the 
 ### Full Duplex Communication:
 SPI supports full-duplex communication, meaning data can be sent and received simultaneously. This is achieved by having separate data lines for sending and receiving data.
 
-### Modes:
-## Mode 0:
+## Modes:
+### Mode 0:
 Clock Polarity (CPOL): 0 (idle state low)
 Clock Phase (CPHA): 0 (data captured on the leading edge of clock)
 In Mode 0, the clock is in its low state (0) when idle, and data is sampled on the leading (rising) edge of the clock signal. Data is typically transmitted and received on MOSI and MISO lines, respectively.
