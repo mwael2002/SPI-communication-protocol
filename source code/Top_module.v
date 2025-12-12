@@ -1,34 +1,8 @@
-module Top_module(input clk,rst_n,output reg[5:0] data_out_M,data_out_S); 
+module Top_module(input clk,rst_n,tx_en,ss,input [7:0] tx_data,output [7:0] data_out_M,data_out_S); 
 
-wire SCK,MOSI,MISO,read_available_M,read_available_S;
-wire [5:0] data_tmp_M,data_tmp_S;
+wire SCK,MOSI,MISO,MISO_golden;
 
-always@(posedge clk,negedge rst_n) begin
-    if(!rst_n) begin
-    data_out_M<=0;
-
-    end
-
-    else if(read_available_M==1) 
-    data_out_M<=data_tmp_M;
-    
-
-end
-
-always@(posedge clk,negedge rst_n) begin
-    if(!rst_n) begin
-    data_out_S<=0;
-    end
-
-
-    else if(read_available_S==1) 
-    data_out_S<=data_tmp_S;
-    
-
-end
-
-SPI_master #(.DATA_LENGTH(6),.CPOL(1),.CPHA(0)) MASTER_DUT(clk,rst_n,MISO,6'b01_0111,SCK,MOSI,read_available_M,data_tmp_M);
-
-SPI_slave #(.DATA_LENGTH(6),.CPOL(1),.CPHA(0)) SLAVE_DUT(clk,rst_n,0,SCK,MOSI,MISO,read_available_S,data_tmp_S);
+SPI_master #(.DATA_LENGTH(8),.CPOL(1),.CPHA(1)) MASTER_DUT(clk,rst_n,MISO,tx_en,tx_data,SCK,MOSI,data_out_M);
+SPI_slave #(.DATA_LENGTH(8),.CPOL(1),.CPHA(1)) SLAVE_DUT(ss,SCK,MOSI,8'b01001101,MISO,data_out_S);
 
 endmodule
