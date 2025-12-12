@@ -1,5 +1,5 @@
 # SPI-communication-protocol
-## Implementation of SPI communication protocol between one master and one slave
+## Implementation of SPI communication protocol between one master and one slave with FPGA Prototyping
 
 ### Master-Slave Architecture:
 SPI typically operates in a master-slave architecture where one device (the master) controls the communication and initiates data transfers, while one or more devices (the slaves) respond to the commands from the master.
