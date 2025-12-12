@@ -32,8 +32,9 @@ In Mode 2, the clock is in its high state (1) when idle, and data is sampled on 
 CPOL: 1,
 CPHA: 1,
 Similar to Mode 2, the clock is in its high state when idle. Data is sampled on the trailing edge of the clock signal.
+
+### The implementation covers the 4 modes by parametrizing CPOL and CPHA. 
 ## FPGA:
 ### Successfully implemented the design on Cyclone V inside DE-10 Board.
 This image shows 8'b11001001 sending from Master to Slave by using switches as input & Leds as output. 
-
-### The implementation covers the 4 modes by parametrizing CPOL and CPHA. 
+![Alt text](https://github.com/mwael2002/SPI-communication-protocol/blob/main/WhatsApp%20Image%202025-12-12%20at%2010.33.00%20PM.jpeg)
